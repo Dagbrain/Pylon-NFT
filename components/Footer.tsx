@@ -8,17 +8,17 @@ const Footer = () => {
     return (
       <footer className="col-span-full flex flex-col items-center justify-between px-6 pb-12 sm:flex-row md:px-16">
         <div className="mb-6 flex flex-row flex-wrap items-center justify-between gap-x-6 text-xs sm:mb-0 sm:gap-x-8 sm:text-sm">
-          <Link href="https://reservoir.tools/">
+          <Link href="https://dagrainion.com/about-2/">
             <a className="" target="_blank" rel="noreferrer">
               About
             </a>
           </Link>
-          <Link href="https://reservoir.tools/privacy">
+          <Link href="https://dagrainion.com/about-2/">
             <a className="min-w-max" target="_blank" rel="noreferrer">
               Privacy Policy
             </a>
           </Link>
-          <Link href="https://reservoir.tools/terms">
+          <Link href="https://dagrainion.com/about-2/">
             <a className="min-w-max" target="_blank" rel="noreferrer">
               Terms of Use
             </a>

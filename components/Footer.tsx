@@ -25,7 +25,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="flex flex-row items-center gap-x-6">
-          <Link href="https://twitter.com/reservoir0x">
+          <Link href="https://twitter.com/PylonNft">
             <a className="" target="_blank" rel="noreferrer">
               <FaTwitter className="h-[20px] w-[25px]" />
             </a>

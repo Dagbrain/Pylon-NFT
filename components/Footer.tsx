@@ -30,7 +30,7 @@ const Footer = () => {
               <FaTwitter className="h-[20px] w-[25px]" />
             </a>
           </Link>
-          <Link href="https://discord.gg/j5K9fESNwh" className="ml-5">
+          <Link href="https://discord.gg/R4y8hqWHTQ" className="ml-5">
             <a className="" target="_blank" rel="noreferrer">
               <FaDiscord className="h-[19px] w-[25px]" />
             </a>

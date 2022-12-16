@@ -1,3 +1,5 @@
-export default function Home() {
-    return <h1>Swap bridge page</h1>
-}
+import Layout from 'components/Layout'
+
+return (
+    <Layout navbar={{}}></Layout>
+)

@@ -26,7 +26,6 @@ const TokenAttributes: FC<Props> = ({ token, collection, isOwner }) => {
   }
 
   if (!token?.attributes || token?.attributes?.length === 0) return null
-
   return (
     <div className="col-span-full md:col-span-4 lg:col-span-5 lg:col-start-2">
       <Accordion.Root
@@ -85,6 +84,7 @@ const TokenAttribute: FC<TokenAttributeProps> = ({
       href={`/collections/${collectionId}?${formatUrl(
         `attributes[${attribute.key}]`
       )}=${formatUrl(`${attribute.value}`)}`}
+      legacyBehavior={true}
     >
       <a className="rounded-lg bg-neutral-100 px-4 py-3 ring-inset ring-blue-600 transition-colors	hover:bg-neutral-300 focus-visible:outline-none focus-visible:ring-2 dark:bg-neutral-800 dark:hover:bg-neutral-600">
         <div className="text-sm text-primary-700 dark:text-primary-300">

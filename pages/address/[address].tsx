@@ -6,7 +6,13 @@ import {
   NextPage,
 } from 'next'
 import { useRouter } from 'next/router'
-import { useAccount, useNetwork, useEnsName, useEnsAvatar } from 'wagmi'
+import {
+  useAccount,
+  useNetwork,
+  useEnsName,
+  useEnsAvatar,
+  Address,
+} from 'wagmi'
 import * as Tabs from '@radix-ui/react-tabs'
 import { toggleOnItem } from 'lib/router'
 import UserOffersTable from 'components/tables/UserOffersTable'
@@ -19,7 +25,7 @@ import toast from 'react-hot-toast'
 import Head from 'next/head'
 import useSearchCommunity from 'hooks/useSearchCommunity'
 import { truncateAddress } from 'lib/truncateText'
-import { paths, setParams } from '@reservoir0x/reservoir-kit-client'
+import { paths, setParams } from '@reservoir0x/reservoir-sdk'
 import UserActivityTab from 'components/tables/UserActivityTab'
 import useMounted from 'hooks/useMounted'
 
@@ -31,10 +37,6 @@ const RESERVOIR_API_KEY = process.env.RESERVOIR_API_KEY
 const RESERVOIR_API_BASE = process.env.NEXT_PUBLIC_RESERVOIR_API_BASE
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
-
-type UseEnsNameAddress = NonNullable<
-  Parameters<typeof useEnsName>['0']
->['address']
 
 const metadata = {
   title: (title: string) => <title>{title}</title>,
@@ -50,11 +52,11 @@ const Address: NextPage<Props> = ({ address, fallback }) => {
   }
 
   const { data: ensAvatar } = useEnsAvatar({
-    addressOrName: address,
+    address: address as Address,
   })
 
   const { data: ensName } = useEnsName({
-    address: address as UseEnsNameAddress,
+    address: address as Address,
     onSettled(data, error) {
       console.log('Settled', { data, error })
     },
@@ -103,6 +105,7 @@ const Address: NextPage<Props> = ({ address, fallback }) => {
     tabs = [
       { name: 'Tokens', id: 'portfolio' },
       { name: 'Offers Made', id: 'buying' },
+      { name: 'Offers Received', id: 'received' },
       { name: 'Active Listings', id: 'listings' },
       { name: 'Inactive Listings', id: 'listings_inactive' },
     ]
